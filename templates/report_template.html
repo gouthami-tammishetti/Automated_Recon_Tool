@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recon Report: {{ target }}</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background: #1a1a2e; color: #e0e0e0; }
+        .card { background: #16213e; padding: 25px; margin-bottom: 25px; border-radius: 12px; border: 1px solid #0f3460; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        h1 { color: #4ecca3; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { color: #4ecca3; border-bottom: 1px solid #4ecca3; padding-bottom: 10px; }
+        .missing { color: #e94560; background: rgba(233, 69, 96, 0.1); padding: 5px 10px; border-radius: 4px; display: inline-block; margin: 5px; border: 1px solid #e94560; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 15px; border-bottom: 1px solid #0f3460; }
+        th { background-color: #0f3460; color: #4ecca3; }
+        tr:hover { background-color: #1f4068; }
+        .info-label { font-weight: bold; color: #4ecca3; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Reconnaissance Report</h1>
+    <p style="text-align: center;">Target: <strong>{{ target }}</strong></p>
+    
+    <div class="card">
+        <h2>Whois Information</h2>
+        <p><span class="info-label">Registrar:</span> {{ whois.registrar }}</p>
+        <p><span class="info-label">Expires:</span> {{ whois.expiration_date }}</p>
+        <p><span class="info-label">Nameservers:</span> {{ whois.name_servers }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Open Ports (Nmap)</h2>
+        <table>
+            <tr><th>Port</th><th>Service</th><th>Version</th><th>State</th></tr>
+            {% for port in ports %}
+            <tr>
+                <td>{{ port.port }}</td>
+                <td>{{ port.service }}</td>
+                <td>{{ port.version }}</td>
+                <td>{{ port.state }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Security Header Analysis</h2>
+        <p><span class="info-label">Server Info:</span> {{ headers.server }}</p>
+        <h3>Missing Headers:</h3>
+        {% for header in headers.missing_headers %}
+        <span class="missing">{{ header }}</span>
+        {% endfor %}
+    </div>
+</body>
+</html>

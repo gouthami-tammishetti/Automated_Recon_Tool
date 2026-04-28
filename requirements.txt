@@ -1,0 +1,5 @@
+python-whois
+dnspython
+python-nmap
+requests
+jinja2
