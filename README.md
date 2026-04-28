@@ -20,3 +20,6 @@ Built using a modular **MVC-inspired** pattern to ensure scalability and clean c
    ```bash
    https://github.com/gouthami-tammishetti/Automated_Recon_Tool.git
    cd Automated_Recon_Tool
+
+## 📊 Sample Output
+![Sample Report](sample.jpeg)
