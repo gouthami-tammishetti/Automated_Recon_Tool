@@ -18,5 +18,5 @@ Built using a modular **MVC-inspired** pattern to ensure scalability and clean c
 1. Install Nmap on your system.
 2. Clone the repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/Automated_Recon_Tool.git](https://github.com/YOUR_USERNAME/Automated_Recon_Tool.git)
+   https://github.com/gouthami-tammishetti/Automated_Recon_Tool.git
    cd Automated_Recon_Tool
